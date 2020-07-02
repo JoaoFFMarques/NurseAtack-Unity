@@ -1,0 +1,524 @@
+fileFormatVersion: 2
+guid: 9d0033c7400dfa44988d697c7eb4b182
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9191502327559253901
+    second: Medical_sup_0
+  - first:
+      213: -7057716528880502165
+    second: Medical_sup_1
+  - first:
+      213: -175134555045309024
+    second: Medical_sup_2
+  - first:
+      213: 2089046223008401466
+    second: Medical_sup_3
+  - first:
+      213: 5113887289459318538
+    second: Medical_sup_4
+  - first:
+      213: 5758238717175165028
+    second: Medical_sup_5
+  - first:
+      213: 3554050503520592349
+    second: Medical_sup_6
+  - first:
+      213: 8857114154603374709
+    second: Medical_sup_7
+  - first:
+      213: 536095282990051003
+    second: Medical_sup_8
+  - first:
+      213: 3876150280249446207
+    second: Medical_sup_9
+  - first:
+      213: 3229207916839529870
+    second: Medical_sup_10
+  - first:
+      213: -3999668891885999759
+    second: Medical_sup_11
+  - first:
+      213: 122509180961595727
+    second: Medical_sup_12
+  - first:
+      213: -3603533968852001465
+    second: Medical_sup_13
+  - first:
+      213: -5792241730624153857
+    second: Medical_sup_14
+  - first:
+      213: -7232585761910931078
+    second: Medical_sup_15
+  - first:
+      213: -1092778533865139547
+    second: Medical_sup_16
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Medical_sup_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 391
+        width: 121
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8f68521ba6ce8f70800000000000000
+      internalID: 9191502327559253901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medical_sup_1
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 433
+        width: 218
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6abcaad534fd0e90800000000000000
+      internalID: -7057716528880502165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medical_sup_2
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 375
+        width: 86
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a5d0a2dc0cc19df0800000000000000
+      internalID: -175134555045309024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medical_sup_3
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 238
+        width: 98
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3889c9b878cdfc10800000000000000
+      internalID: 2089046223008401466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medical_sup_4
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 238
+        width: 105
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0f9b9d256d28f640800000000000000
+      internalID: 5113887289459318538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medical_sup_5
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 272
+        width: 141
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4607025da9f59ef40800000000000000
+      internalID: 5758238717175165028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medical_sup_6
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 198
+        width: 40
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd1a4205a16825130800000000000000
+      internalID: 3554050503520592349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medical_sup_7
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 134
+        width: 109
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 578e738856acaea70800000000000000
+      internalID: 8857114154603374709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medical_sup_8
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 171
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbe626cc1d7907700800000000000000
+      internalID: 536095282990051003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medical_sup_9
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 102
+        width: 53
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3f8c46a42adac530800000000000000
+      internalID: 3876150280249446207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medical_sup_10
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 125
+        width: 69
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8d6915cd7370dc20800000000000000
+      internalID: 3229207916839529870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medical_sup_11
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 107
+        width: 65
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17964ff75525e78c0800000000000000
+      internalID: -3999668891885999759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medical_sup_12
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 4
+        width: 29
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f41a0f4737d33b100800000000000000
+      internalID: 122509180961595727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medical_sup_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7
+        width: 37
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74dd58a92fcadfdc0800000000000000
+      internalID: -3603533968852001465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medical_sup_14
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 7
+        width: 66
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff614f8a5d2dd9fa0800000000000000
+      internalID: -5792241730624153857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medical_sup_15
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 3
+        width: 106
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7140c5c191b0ab90800000000000000
+      internalID: -7232585761910931078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medical_sup_16
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 0
+        width: 65
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a2dbc696bba5d0f0800000000000000
+      internalID: -1092778533865139547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 290c4baa286469b45bdd31b0d6a144ed
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

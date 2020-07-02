@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - HitBoxCollider
+  - EnemyHitBoxCollider
+  - InvisibleWall
+  - Mask
+  - Sick
+  - CallResc
+  - Person
+  - Boss
+  - BossHit
+  - Enemy
+  - Despawner
+  - Generator
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - BackGround
+  - Houses
+  - Player
+  - Ground
+  - Person
+  - Enemy
+  - StageWall
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - MovingOut
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 2307854373
+    locked: 0
+  - name: Houses
+    uniqueID: 481656169
+    locked: 0
+  - name: BackGround
+    uniqueID: 4217780425
+    locked: 0

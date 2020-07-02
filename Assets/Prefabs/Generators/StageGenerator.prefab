@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6000886734920680942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6000886734920680939}
+  - component: {fileID: 6000886734920680941}
+  - component: {fileID: 6000886734920680940}
+  m_Layer: 0
+  m_Name: StageGenerator
+  m_TagString: Generator
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6000886734920680939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6000886734920680942}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -39, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6000886734920680941
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6000886734920680942}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.1344185, y: 22.019693, z: 23.024416}
+  m_Center: {x: 0, y: 8.6926985, z: -0.06362057}
+--- !u!114 &6000886734920680940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6000886734920680942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 149b29246ddaa134eade4f6bd4c4b3a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RightWall: {fileID: 503600489297297200, guid: dcf6ce2caa7930b48984441db888e489,
+    type: 3}
+  LeftWall: {fileID: 6856905220431352891, guid: 36f13b62e0dcb5243b77d36743056825,
+    type: 3}
+  Npc:
+  - {fileID: 8505025236504259088, guid: ca8c374f3a5032040930f806461c4dbe, type: 3}
+  - {fileID: 953239480677098679, guid: d8b0ef3b3edcceb469d2fc581d8e8ac7, type: 3}
+  - {fileID: 5586491747352510278, guid: 06702d28d0a5d00448d6f1a18f9eaf16, type: 3}
+  - {fileID: 7817348631255095068, guid: 9868cb5cd277756458e0ae998fbf92a6, type: 3}
+  - {fileID: 1786244228095649532, guid: ab3240ba4482dde4ca3e7e8bbe4801f2, type: 3}
+  NpcQtd: 4
+  Enemy:
+  - {fileID: 5825575737178361814, guid: aadda01449d7cb640b320d867ac4d55d, type: 3}
+  EnemyQtd: 2

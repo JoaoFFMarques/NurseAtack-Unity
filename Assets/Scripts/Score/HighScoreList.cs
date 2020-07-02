@@ -1,0 +1,14 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+
+
+[System.Serializable]
+public class HighScoreList
+{
+    public List<HighScore> ScoreEntryList;
+    
+    public void SortIt()
+    {
+        ScoreEntryList=ScoreEntryList.OrderByDescending(o => o.Score).ToList();
+    }
+}
