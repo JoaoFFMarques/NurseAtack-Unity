@@ -16,6 +16,8 @@ TagManager:
   - Enemy
   - Despawner
   - Generator
+  - MusicSource
+  - SFXSource
   layers:
   - Default
   - TransparentFX

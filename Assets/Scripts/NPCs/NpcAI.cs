@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public abstract class NpcAI : MonoBehaviour
-{ 
+{ //classe abstrata para montagem do comportamento dos npcs (pessoas, inimigos e chefe)
     public GameController Gamecontroller { get; protected set; }
     public Rigidbody NpcRB { get; protected set; }
     public Animator NpcAnimator { get; protected set; }
@@ -22,6 +22,7 @@ public abstract class NpcAI : MonoBehaviour
     {
         IsWalking = true;
     }
+    //funções abstratas que deverão ser implementadas pelas subclasses
     public abstract void Flip();    
     public abstract void Move();
 }

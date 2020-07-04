@@ -2,7 +2,7 @@
 using UnityEngine;
 
 public abstract class GeneralEnemy : NpcAI
-{
+{//subclasse que controla os inimigos
     [Header("HitBox")]
     public Transform Hitter;
     public GameObject HitBoxPrefab;
@@ -17,41 +17,41 @@ public abstract class GeneralEnemy : NpcAI
     public bool IsDead;
 
     public void FixedUpdate()
-    {
+    {//controle do movimento, do giro e do ataque do inimigo
         if(Gamecontroller.TotalLife > 0 && !IsDead && !Gamecontroller.GameEnd)
         {
             Flip();
             Move();
-            if(CanAtack)
+            if(CanAtack)//se o inimigo puder atacar ele vai fazer
             {
                 EnemyAtack();
             }
             else
-                TimerToAtack();
+                TimerToAtack();//função que coloca um timer entre os ataques dos inimigos
             if(!IsWalking)
                 StartCoroutine("Walk");
         }
     }
     public void OnTriggerEnter(Collider collision)
-    {
+    {//controle de colisção com os ataques da personagem
         if(collision.CompareTag("HitBoxCollider") && !IsHit && !IsDead)
         {            
             IsHit = true;
             IsWalking = false;                
             switch(gameObject.tag)
             {
-                case "Enemy":
+                case "Enemy"://se for um inimigo comum
                     EnemyTotalLife -= 1;
                     Gamecontroller.EnemyHeartController((int)EnemyTotalLife);
                     Gamecontroller.TimerEnemyBar = 3f;
                     break;
-                case "Boss":
+                case "Boss"://se for um chefe o dano é menor
                     EnemyTotalLife -= 0.5f;
                     Gamecontroller.BossHeartController(EnemyTotalLife);
                     break;
             }                
             Gamecontroller.PlaySFX(Gamecontroller.SfxDamageTaken);
-            if(EnemyTotalLife <= 0)
+            if(EnemyTotalLife <= 0)//verifica se a vida zerou para a animação de morte
             {
                 IsDead = true;
                 if(gameObject.CompareTag("Boss"))
@@ -60,7 +60,7 @@ public abstract class GeneralEnemy : NpcAI
                     Gamecontroller.PlaySFX(Gamecontroller.SfxEnemyDead);
                 NpcAnimator.SetTrigger("IsDead");
             }
-            else
+            else//se a vida não zerou inicia a animação de ter tomado dano
             {
                 NpcAnimator.SetTrigger("Hitted");
                 IsHit = false;
@@ -69,21 +69,21 @@ public abstract class GeneralEnemy : NpcAI
         
         
     }    
-    public void TimerToAtack()
+    public void TimerToAtack()//contador para qdo será o próximo ataque
     {
-        if(_TimerToAtack > 0)
+        if(_TimerToAtack > 0)//se o contador não zerar não pode atacar ainda
         {
             CanAtack = false;
             _TimerToAtack -= _Time * Time.deltaTime;
         }
         else
         {
-            CanAtack = true;
+            CanAtack = true;//se e puder atacar o timer volta ao valor inicial
             _TimerToAtack = _TimeSet;
         }
     }
     public void EnemyAtack()
-    {
+    {//controle do ataque d inimigo
         if((Gamecontroller.PlayerTransform.position.x - transform.position.x <= 5 && !IsLookLeft) ||
             (transform.position.x - Gamecontroller.PlayerTransform.position.x <= 5 && IsLookLeft))
         {
@@ -94,19 +94,17 @@ public abstract class GeneralEnemy : NpcAI
         }
     }
     public void EnemyOnEndAtack()
-#pragma warning restore IDE0051 // Remover membros privados não utilizados
-    {
+    {//verifica o fim do ataque. chamada como evento na animação de ataque
         CanAtack = false;
     }
-    public void EnemyHitBoxAtack()
-#pragma warning disable IDE0051 // Remover membros privados não utilizados    
-    {
+    public void EnemyHitBoxAtack()    
+    {//instancia o hit box do ataque do inimgo, chamada como evento na propria animação
         GameObject hitBoxTemp = Instantiate(HitBoxPrefab, Hitter.position, transform.localRotation);
         hitBoxTemp.transform.SetParent(gameObject.transform);
         Destroy(hitBoxTemp, 0.2F);
     }
     public override void Move()
-    {
+    {//faz a movimentação do inimigo
         var pos = Gamecontroller.PlayerTransform.position;
         if(IsFollow && IsWalking)
         {
@@ -126,12 +124,12 @@ public abstract class GeneralEnemy : NpcAI
         yield return new WaitForSeconds(1f*Time.fixedDeltaTime);
     }
     public override void Flip()
-    {
+    {//controle de rotação
         IsLookLeft = Gamecontroller.PlayerTransform.position.x <= transform.position.x;
         if(IsLookLeft)
             transform.eulerAngles = new Vector3(0, 180, 0);
         else
             transform.eulerAngles = new Vector3(0, 0, 0);
     }
-    public abstract void OnDead();
+    public abstract void OnDead();//classe abstrata para fazera  verioficação de morte
 }

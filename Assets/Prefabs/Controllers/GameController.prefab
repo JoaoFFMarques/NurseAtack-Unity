@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1166638904608159120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1166638904608159122}
+  - component: {fileID: 1166638904608159123}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1166638904608159122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166638904608159120}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1166638904608159123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166638904608159120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f06f047e53b482748b69b4f6f6ec3530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameWorld: {fileID: 0}
+  PlayerTransform: {fileID: 0}
+  Started: 0
+  GameEnd: 0
+  MusicSource: {fileID: 0}
+  SfxSource: {fileID: 0}
+  SfxAtack: {fileID: 8300000, guid: 6a46f273eecd26e409e6d3ef9ce6fd9c, type: 3}
+  SfxEnemyDead: {fileID: 8300000, guid: 8e033fa3e33dd8f48ab93bd38f345406, type: 3}
+  SfxPlayerDead: {fileID: 8300000, guid: e7904ff112fa2cd49b53d635ccc2c1f0, type: 3}
+  SfxDamageTaken: {fileID: 8300000, guid: 52796a84c6ab8944aa0bd0d14911f961, type: 3}
+  SfxRescue: {fileID: 8300000, guid: 6e4e23f5f61819c4f85a8686ccac6234, type: 3}
+  SfxMenu: {fileID: 8300000, guid: 14a797a9bcdb9f2408fcb969bde061b1, type: 3}
+  SfxBossAwake: {fileID: 8300000, guid: 024d11d5447c5054199fb552895b875b, type: 3}
+  SfxBossDead: {fileID: 8300000, guid: a89a10023cbd45c4aa59b9e438c7c722, type: 3}
+  MusicGAME: {fileID: 8300000, guid: e97712ffde763734bbaaf0e9a16b78fd, type: 3}
+  MusicSTAGECLEAR: {fileID: 8300000, guid: 90ce71d997fafce4bbb0ec9e82186f1f, type: 3}
+  MusicGAMEOVER: {fileID: 8300000, guid: 19c2617d2b5149b40bda0bd74f6323eb, type: 3}
+  MusicBOSS: {fileID: 8300000, guid: bc68a1d9c641b1d43a6aa27ea90cd7bc, type: 3}
+  CurrentState: 5
+  GamePanel: {fileID: 0}
+  PausePanel: {fileID: 0}
+  OptPanel: {fileID: 0}
+  GameOverPanel: {fileID: 0}
+  StageClearPanel: {fileID: 0}
+  PointsPanel: {fileID: 0}
+  Go: {fileID: 0}
+  TouchControll: {fileID: 0}
+  Opt: {fileID: 0}
+  MaskedPtsQtdTXT: {fileID: 0}
+  MaskedPtsTXT: {fileID: 0}
+  RescuedQtdPtsTXT: {fileID: 0}
+  RescuedPtsTXT: {fileID: 0}
+  TotalPtsTXT: {fileID: 0}
+  namePoints: 
+  TotalPoints: 0
+  Buttons: {fileID: 0}
+  NameField: {fileID: 0}
+  LifeImg:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  TotalLife: 5
+  PlayerChances: 2
+  ChancesTXT: {fileID: 0}
+  MaskedTXT: {fileID: 0}
+  RescuedTXT: {fileID: 0}
+  EnemyBar: {fileID: 0}
+  EnemyLifeImg:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  TimerEnemyBar: 4
+  BossBar: {fileID: 0}
+  BossLifeImg:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

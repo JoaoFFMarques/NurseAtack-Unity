@@ -2,6 +2,8 @@
 
 public class PlayerController : MonoBehaviour
 {
+    //controlador da personagem
+
     public Color SickColor;
     public float SickTime;
     private bool IsSick;
@@ -50,30 +52,33 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        //input do controle de movimento e ação
         Control();
         if(IsSick)
             Sicked();
+        //verificação das animações
         Animating.SetBool("IsWalking", IsWalking);
         Animating.SetFloat("SpeedY", SpeedY);
         Animating.SetBool("IsGrounded", IsGrounded);
         Animating.SetBool("IsAtack", IsAtack);
-        Animating.SetBool("IsHit", IsHit);        
+        Animating.SetBool("IsHit", IsHit);
     }
     private void FixedUpdate()
     {
+        //funções para moevr, pular ou rotacionar a personagem
         if(Gamecontroller.TotalLife > 0 && !Gamecontroller.GameEnd)
         {
             Move();
             Jump();
-            if(Input.GetAxis("Horizontal") > 0 && isLookLeft && !IsAtack)
+            if(Movement.x > 0 && isLookLeft && !IsAtack)
                 Rotate();
-            else if(Input.GetAxis("Horizontal") < 0 && !isLookLeft && !IsAtack)
+            else if(Movement.x < 0 && !isLookLeft && !IsAtack)
                 Rotate();
         }
     }
     private void OnTriggerEnter(Collider collision)
     {
-        if(!IsHit && !b_IsDead)
+        if(!IsHit && !b_IsDead)//se a eprsonage já recebeu hit ela não receb outro
         {
             switch(collision.gameObject.tag)
             {
@@ -81,7 +86,7 @@ public class PlayerController : MonoBehaviour
                     if(Gamecontroller.TotalLife > 0)
                     {
                         Gamecontroller.TotalLife -= 1;
-                        if(Gamecontroller.TotalLife <= 0)
+                        if(Gamecontroller.TotalLife <= 0)//verifica se a vida zerou
                             IsDead();
                         else
                             OnHit();
@@ -97,43 +102,30 @@ public class PlayerController : MonoBehaviour
                             OnHit();
                     }
                     break;
-                case "Sick":
+                case "Sick"://verifica se colidiu com alguem doente
                     Sick();
                     break;
             }
-        }        
+        }
     }
     private void Control()
     {
         if(Gamecontroller.TotalLife > 0 && !Gamecontroller.GameEnd)
-        {
-            Movement.x = Input.GetAxis("Horizontal");
-            Movement.z = Input.GetAxis("Vertical");
+        {//eixos de movimento
+            Movement.x = SimpleInput.GetAxis("Horizontal");
+            Movement.z = SimpleInput.GetAxis("Vertical");            
+
             IsGrounded = Physics.CheckSphere(Feet.position, GroundDistance, GroundLayer, QueryTriggerInteraction.Ignore);
-            SpeedY = Body.velocity.y;            
-            if(Input.GetButtonDown("Jump") && IsGrounded)
-            {
-                IsJumping = true;
-                JumpElapsedTime = 0.0f;
-            }
-            if(Input.GetButtonDown("Fire1") && !IsAtack)
-            {
-                Gamecontroller.PlaySFX(Gamecontroller.SfxAtack);
-                IsAtack = true;
-                Animating.SetTrigger("Atack");           
-            }
-            if(Input.GetButtonDown("Fire2") && !IsAtack && IsGrounded)
-            {
-                IsAtack = true;
-                Gamecontroller.PlaySFX(Gamecontroller.SfxAtack);
-                Animating.SetTrigger("Shooting");
-            }
-            if(Input.GetButtonDown("Fire3") && !IsAtack && IsGrounded)
-            {
-                IsAtack = true;
-                Gamecontroller.PlaySFX(Gamecontroller.SfxAtack);
-                Animating.SetTrigger("CallResc");
-            }
+            SpeedY = Body.velocity.y;
+            //verifica o input dos botões, para funcionar com controles também
+            if(SimpleInput.GetButtonDown("Jump"))
+                Jumping();
+            if(SimpleInput.GetButtonDown("Fire1"))
+                Atacking();
+            if(SimpleInput.GetButtonDown("Fire2"))
+                Masking();
+            if(SimpleInput.GetButtonDown("Fire3"))
+                Rescuing();
         }
     }
     private void Move()
@@ -143,12 +135,12 @@ public class PlayerController : MonoBehaviour
         else
             IsWalking = false;
 
-        if(!IsAtack && !IsHit)
+        if(!IsAtack && !IsHit)//não eprmite se movimnetar se esta atacando ou se recebeu dano naquele instante
             Body.MovePosition(Body.position + Movement * MoveSpeed * Time.fixedDeltaTime);
         else if(IsAtack && !IsGrounded && !IsHit)
             Body.MovePosition(Body.position + Movement * MoveSpeed * Time.fixedDeltaTime);
     }
-    private void Rotate()
+    private void Rotate()//gira a personagem
     {
         float x = transform.localScale.x * -1;
 
@@ -157,7 +149,7 @@ public class PlayerController : MonoBehaviour
         transform.localScale = new Vector3(x, transform.localScale.y, transform.localScale.z);
     }
     private void Jump()
-    {
+    {//cotrole do pulo, qto mais se pressionar o botão de pulo maior será a distancia de salto
         if(IsJumping && JumpElapsedTime > (JumpTime / 3))
             if(!Input.GetButton("Jump"))
                 IsJumping = false;
@@ -175,13 +167,13 @@ public class PlayerController : MonoBehaviour
     }
 #pragma warning disable IDE0051 // Remover membros privados não utilizados
     public void HitBoxAtack()
-    {
+    {//intancia na tela o hit box qdo é feito o chute. a função é chamada em um evento an animação
         GameObject hitBoxTemp = Instantiate(HitBoxPrefab, Hitter.position, Hitter.transform.localRotation);
         hitBoxTemp.transform.SetParent(gameObject.transform);
         Destroy(hitBoxTemp, 0.2f);
     }
     private void Sick()
-    {
+    {//cotrole de quando se adoece
         IsSick = true;
         SickTime = 6f;
         gameObject.tag = "Sick";
@@ -189,7 +181,7 @@ public class PlayerController : MonoBehaviour
         MoveSpeed = 3;
     }
     private void Sicked()
-    {
+    {//efeito do a doença termina
         if(SickTime > 0)
         {
             SickTime -= 1f * Time.deltaTime;
@@ -207,24 +199,24 @@ public class PlayerController : MonoBehaviour
             IsDead();
     }
     private void ThrowMask()
-    {
+    {//intsnacia a mascara na tela
         GameObject mask = Instantiate(MaskObj, Hitter.position, transform.localRotation);
-        mask.transform.SetParent(gameObject.transform.parent);        
+        mask.transform.SetParent(gameObject.transform.parent);
     }
     private void CallRescue()
-    {
-        GameObject call= Instantiate(CallResc, Hitter.position, transform.localRotation);
-        call.transform.SetParent(gameObject.transform.parent);       
+    {//instancia o alcool em gem
+        GameObject call = Instantiate(CallResc, Hitter.position, transform.localRotation);
+        call.transform.SetParent(gameObject.transform.parent);
     }
     private void OnHit()
-    {
+    {//função que verifica qdo inicia a animação de tomar dano. 
         IsHit = true;
-        IsAtack = false;        
+        IsAtack = false;
         Gamecontroller.HeartController();
-        Gamecontroller.PlaySFX(Gamecontroller.SfxDamageTaken);        
+        Gamecontroller.PlaySFX(Gamecontroller.SfxDamageTaken);
     }
     private void IsDead()
-    {
+    {//função de controle qdo a personagem morre
         if(!b_IsDead)
         {
             Gamecontroller.PlaySFX(Gamecontroller.SfxDamageTaken);
@@ -234,11 +226,11 @@ public class PlayerController : MonoBehaviour
         }
     }
     public void Ondead()
-    {
+    {//som de morte chamada na animação de morte
         Gamecontroller.PlaySFX(Gamecontroller.SfxPlayerDead);
     }
     public void PlayerDead()
-    {
+    {//função chamada caso a vida chegue a zero para ver se ela ressucita ou finaliza o jogo
         if(Gamecontroller.PlayerChances == 0)
             Gamecontroller.GameOver();
         else
@@ -255,13 +247,49 @@ public class PlayerController : MonoBehaviour
         }
     }
     public void PlayerHitted()
-    {
+    {//função que finaliza o efeito de tomar dano ela é chamada como evento na propria animação de tomar dano
         IsHit = false;
     }
 #pragma warning disable IDE0051 // Remover membros privados não utilizados
     public void OnEndAtack()
 #pragma warning restore IDE0051 // Remover membros privados não utilizados
-    {
+    {//verifca qdo finaliza o ataqeu, chamada na propria animação de ataque ou atirar mascar/gel
         IsAtack = false;
+    }   
+    public void Jumping()
+    {//função de pulo chamada na função Control()
+        if(IsGrounded)
+        {
+            IsJumping = true;
+            JumpElapsedTime = 0.0f;
+        }
     }
+    public void Atacking()
+    {//função de ataque chamada na função Control()
+        if(!IsAtack)
+        {
+            Gamecontroller.PlaySFX(Gamecontroller.SfxAtack);
+            IsAtack = true;
+            Animating.SetTrigger("Atack");
+        }
+    }
+    public void Rescuing()
+    {//função de atirar alcool chamada na função Control()
+        if(!IsAtack && IsGrounded)
+        {
+            IsAtack = true;
+            Gamecontroller.PlaySFX(Gamecontroller.SfxAtack);
+            Animating.SetTrigger("CallResc");
+        }
+    }
+    public void Masking()
+    {//função de atirar mascar chamada na função Control()
+        if(!IsAtack && IsGrounded)
+        {
+            IsAtack = true;
+            Gamecontroller.PlaySFX(Gamecontroller.SfxAtack);
+            Animating.SetTrigger("Shooting");
+        }
+    }
+
 }

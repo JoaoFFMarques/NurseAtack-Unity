@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public class StageGenerator : MonoBehaviour
-{
+{//controladr que gera os inimigos e as pessoas, podendo ser configuradoa  quantidade no priprio inspector
     public GameObject RightWall;
     public GameObject LeftWall;
     public GameObject[] Npc;
@@ -33,18 +33,18 @@ public class StageGenerator : MonoBehaviour
         FinishCheck();
     }
     public void OnTriggerEnter(Collider collison)
-    {
+    {//ativa o gerador quado colide com o jogador
         if(collison.CompareTag("Player"))
         {
             GetComponent<BoxCollider>().enabled = false;
             Cam.maxXAndY.x = transform.position.x + 22.6f;
-            Spawner(Npc, NpcQtd);
-            Spawner(Enemy, EnemyQtd);
-            BuildWall();
+            Spawner(Npc, NpcQtd);//gera as pesosas
+            Spawner(Enemy, EnemyQtd);//gera os inimigos
+            BuildWall();//"prende" todos os elementos na tela
         }
     }    
     private void Spawner(GameObject[] npc, int qtd)
-    {
+    {//instancia o personagem/inimigp pelo tipo e qtdeade definida
         Vector3 spawnPosition;
         GameObject[] npc_Qtd = new GameObject[qtd];
         for(int i = 0; i < qtd; i++)
@@ -63,9 +63,9 @@ public class StageGenerator : MonoBehaviour
             CurrentNpc++;
         }
     }
-    void BuildWall()
+    void BuildWall()//constroes os prefabs de parede invisivel
     {
-        var rightPos = new Vector3(transform.position.x + 64.2f, 0, 0.2f);
+        var rightPos = new Vector3(transform.position.x + 64.2f, 0, 0.2f);//parede direita
         Right = Instantiate(RightWall, rightPos, Quaternion.identity);
         Right.transform.SetParent(gameObject.transform);
         rightPos = new Vector3(transform.position.x + 69.2f, 0, 0.2f);
@@ -73,7 +73,7 @@ public class StageGenerator : MonoBehaviour
         RightDespawner.transform.SetParent(gameObject.transform);
         RightDespawner.tag = "Despawner";
 
-        var leftPos = new Vector3(transform.position.x - 13.6f, 0, -0.7f);
+        var leftPos = new Vector3(transform.position.x - 13.6f, 0, -0.7f);//parede esquerda
         Left = Instantiate(LeftWall, leftPos, Quaternion.identity);
         Left.transform.SetParent(gameObject.transform);
         leftPos = new Vector3(transform.position.x - 18.6f, 0, -0.7f);
@@ -82,7 +82,7 @@ public class StageGenerator : MonoBehaviour
         LeftDespawner.tag = "Despawner";
     }
     void FinishCheck()
-    {
+    {//checa se todos os eprsonagems criados e inimigos ainda estão an cena para liberar a saida do eprsonagem
         if(CurrentNpc >= NpcQtd+EnemyQtd)
         {
             Npcs = SetQtd();
@@ -92,17 +92,17 @@ public class StageGenerator : MonoBehaviour
                 if(!setCam)
                 {
                     setCam = true;
-                    Cam.maxXAndY.x += 60;
+                    Cam.maxXAndY.x += 60;//reposiciona a camera
                 }
                 if(!StartGo)
                 {
-                    Gamecontroller.StageGoBar();
+                    Gamecontroller.StageGoBar();//chama a animação da seta de coontinuar
                     StartGo = true;
                 }
-                Destroy(Right);
+                Destroy(Right);//destoi a parede direita
                 Destroy(RightDespawner);
                 if(Cam.transform.position.x >= transform.position.x + 81.5f)
-                {                    
+                {//apos determinada distancia destroe a parede esquerda                    
                     Destroy(Left);
                     Destroy(LeftDespawner);
                     gameObject.SetActive(false);
@@ -111,7 +111,7 @@ public class StageGenerator : MonoBehaviour
         }
     }
     public int SetQtd()
-    {
+    {//verifica qtos foram criados
         return FindObjectsOfType<NpcAI>().Length;
     }
 }

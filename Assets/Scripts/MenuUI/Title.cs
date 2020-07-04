@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 
 public class Title : MonoBehaviour
 {
+    //controle de animaçãod e rotação de abertura do jogo
     public GameObject Spin_Title;
     public GameObject m_Title;
     public GameObject m_Buttons;
@@ -13,7 +14,7 @@ public class Title : MonoBehaviour
 
 
     void Update()
-    {
+    {//se anmação não terminou ele continua com ela
         if(!m_Stop)
         {
             Move();
@@ -28,7 +29,7 @@ public class Title : MonoBehaviour
             m_Buttons.SetActive(true);
             Cursor.visible = true;
             
-            if(Input.anyKey && !setselected)
+            if(Input.anyKey && !setselected)//a animação pdoe ser interrompida com o pressionar de qqr tecla/botão
             {
                 GameObject first = GameObject.Find("Start");
                 EventSystem _event = EventSystem.current.GetComponent<EventSystem>();
@@ -40,14 +41,14 @@ public class Title : MonoBehaviour
         }
     }
     private void Move()
-    {
+    {//faz o movimento do titulo e rotação na tela
         Vector3 pos = this.transform.position;
         pos.z = 0f;
         Spin_Title.transform.position = Vector3.MoveTowards(Spin_Title.transform.position, pos, 23f * Time.deltaTime);
         Spin_Title.transform.Rotate(0, 0, this.RotateSpead);
     }
     public void TitleVanish()
-    {
+    {//o titulo girando some da tela
         if(TimerVanish > 0)
         {
             TimerVanish -= 1f * Time.deltaTime;

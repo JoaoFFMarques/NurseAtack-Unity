@@ -2,7 +2,7 @@
 using System.Linq;
 
 
-[System.Serializable]
+[System.Serializable]//serialização para montar a lista de pontuação
 public class HighScoreList
 {
     public List<HighScore> ScoreEntryList;

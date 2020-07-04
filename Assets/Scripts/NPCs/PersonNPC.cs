@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
-
+//script de comportamento das pessoas
 public class PersonNPC : NpcAI
 {
     public bool IsLookLeft;
@@ -21,16 +21,17 @@ public class PersonNPC : NpcAI
     new private void Start()
     {
         base.Start();
+        //implementação da base e das particularidades
         PersonSR = GetComponent<SpriteRenderer>();
         StartCoroutine("Walking");
-        SickStart = Random.Range(0, 100) <= 25;
+        SickStart = Random.Range(0, 100) <= 25;//verifica quem será gerado já contaminado
         if(SickStart)
             Sick();
     }
     private void FixedUpdate()
     {
         if(!Gamecontroller.GameEnd)
-        {
+        {//controle de rotação e movimento do eprsonagem
             if((Horizontal > 0 && IsLookLeft) || (Horizontal < 0 && !IsLookLeft))
                 Flip();
             Move();
@@ -40,7 +41,7 @@ public class PersonNPC : NpcAI
     {
         switch(collison.gameObject.tag)
         {
-            case "Mask":
+            case "Mask"://qdo a amscara atinge o objeto
                 if(!Contaminated && !Masked && !IsRescued)
                 { 
                     _Start = false;
@@ -50,17 +51,17 @@ public class PersonNPC : NpcAI
                     MoveOut();
                 }
                 break;
-            case "Despawner":
+            case "Despawner"://retirar o objeto da cena
                 if(!_Start)
                 {
                     Destroy(this.gameObject);
                 }
                 break;
-            case "Sick":
+            case "Sick"://verificar se ficou doente
                 if(!Masked && !IsRescued)
                     Sick();
                 break;
-            case "CallResc":
+            case "CallResc"://qdo atingido pelo alcool em gel evrifica se esta contaminado
                 if(Contaminated && !IsRescued)
                 {
                     _Start = false;
@@ -75,7 +76,7 @@ public class PersonNPC : NpcAI
         }        
     }
     private void MoveOut()
-    {
+    {//função que movimenta o objeto rpa fora da tela
         int Rand = Random.Range(0, 50);
 
         if(Rand < 25)
@@ -89,15 +90,15 @@ public class PersonNPC : NpcAI
         NpcAnimator.SetBool("Mask", Masked);
     }
     private void Sick()
-    {
+    {//função para controlar os efeitos da doença
         Contaminated = true;        
-        HitBox.tag = "Sick";
+        HitBox.tag = "Sick";//permite proliferar a doença
         PersonSR.color = SickColor;
         Speed = 3;
         TimeToWalk = 5.0f;
     }
     private void SickOut()
-    {
+    {//retirar o objeto contaminado e chamando a animação própria
         PersonSR.color = Color.white;
         
         Speed = 20;
@@ -115,7 +116,7 @@ public class PersonNPC : NpcAI
         NpcAnimator.SetBool("IsRescued", IsRescued);
     }    
     public override void Flip()
-    {
+    {//função que gira o objeto an direção para onde se movimentar
         IsLookLeft = !IsLookLeft;
         
         if(IsLookLeft)
@@ -124,7 +125,7 @@ public class PersonNPC : NpcAI
             transform.eulerAngles = new Vector3(0, 0, 0);
     }
     public override void Move()
-    {
+    {//faz o controle de movimento
         NpcRB.velocity = new Vector3(Horizontal * Speed, NpcRB.velocity.y, Vertical * Speed);
         if(!IsRescued)
         {
@@ -135,7 +136,7 @@ public class PersonNPC : NpcAI
         }
     }
     private int RandMov()
-    {
+    {//gera um valor aleatório para detemrinar a direção do movimento do objeto
         int Rand = Random.Range(0, 100);
 
         if(Rand < 33)
