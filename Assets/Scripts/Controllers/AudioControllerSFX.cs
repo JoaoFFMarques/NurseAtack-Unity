@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+//instancia o objeto estático para mantê-lo entre as transições de cenas
 public class AudioControllerSFX : MonoBehaviour
 {
     public static AudioControllerSFX instance = null;
